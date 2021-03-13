@@ -1,0 +1,33 @@
+﻿@model IEnumerable<CentralSportV1._0._1.Models.images>
+
+@{
+    Layout = "~/Views/Shared/SharedPagesLayout.cshtml";
+}
+
+<div class="vrati">
+    <table class="table">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <img src="@Url.Content(item.imagePathOnDisk)" style="width:50%;height:50%;" />
+                 </td>
+                <td class="align-right">
+                    @Html.ActionLink("Obriši", "DeletePicture", new { idSlike = item.imageId })
+                </td>
+            </tr>
+    }
+
+    </table>
+</div>
+
+<div class="Boja">
+    <hr />
+
+
+        <a href='@Url.Action("RedirectToDetails", "Poduzeće")'>Natrag na stranicu profila</a>
+   
+
+    <br />
+    </div>
+

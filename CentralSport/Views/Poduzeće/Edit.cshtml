@@ -1,0 +1,122 @@
+﻿@model CentralSportV1._0._1.Models.poduzeće
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/SharedPagesLayout.cshtml";
+}
+
+<br />
+<h1 class="text-primary text-md-center"><span class="glyphicon glyphicon-user"></span>Ažuriranje informacija poduzeća</h1>
+<br />
+
+@using (Html.BeginForm("Edit", "Poduzeće", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+
+    <div class="container bootstrap" style="margin:auto;">
+
+        <br />
+        <div class="row">
+            <!-- left column -->
+            <!-- edit form column -->
+            <div class="col-md-9 personal-info" style="margin:10px 10px 10px auto;">
+
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <div>
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            @Html.HiddenFor(model => model.idPoduzeće, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Ime poduzeća:</label>
+                        <div class="col-lg-8">
+                            @Html.EditorFor(model => model.imePoduzeće, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.imePoduzeće, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Primarna djelatnost:</label>
+                        <div class="col-lg-8">
+                            @Html.DropDownListFor(model => model.primarnaDjelatnostPoduzeće, Model.PrimarneDjelatnosti, "Odaberite primarnu djelatnost", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.primarnaDjelatnostPoduzeće, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-12 control-label">Kratki opis o poduzeću(usluge, treneri, termini i sl.):</label>
+                        <div class="col-lg-8">
+                            @Html.TextAreaFor(model => model.opisPoduzeće, new { @id = "opisPoduzećaId", @class = "form-control", @style = "resize: none" })
+                            <div id="counter" class="text-md-right"></div>
+                            @Html.ValidationMessageFor(model => model.opisPoduzeće, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Županija:</label>
+                        <div class="col-lg-8">
+                            @Html.DropDownListFor(model => model.županijaPoduzeće, Model.Županije, "Odaberite županiju", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.županijaPoduzeće, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label"> Grad:</label>
+                        <div class="col-lg-8">
+                            @Html.DropDownListFor(model => model.gradPoduzeće, Model.Gradovi, "Odaberite grad", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.gradPoduzeće, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label"> Ulica:</label>
+                        <div class="col-lg-8">
+                            @Html.EditorFor(model => model.ulicaPoduzeće, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.ulicaPoduzeće, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Kontakt email:</label>
+                        <div class="col-lg-8">
+                            @Html.EditorFor(model => model.kontaktEmail, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.kontaktEmail, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Kontakt telefon:</label>
+                        <div class="col-lg-8">
+                            @Html.EditorFor(model => model.kontaktTelefon, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.kontaktTelefon, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="form-group text-md-center" style="margin:auto">
+            <div class="col-md-12" style="margin:auto">
+                <input type="submit" value="Spremi promjene" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+<div class="Boja">
+    <hr>
+
+    @Html.ActionLink("Natrag na profil", "Details", new { idPoduzeća = Model.idPoduzeće })
+
+    <br />
+</div>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src=@Url.Content("/Content/BrojanjeSlova/MaxLength.min.js")></script>
+
+<script type="text/javascript">
+    $(function () {
+        //Specifying the Character Count control explicitly
+        $("[id*=opisPoduzećaId]").MaxLength(
+            {
+                MaxLength: 5000,
+                CharacterCountControl: $('#counter')
+            });
+    });
+</script>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

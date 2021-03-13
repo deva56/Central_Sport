@@ -1,0 +1,49 @@
+﻿@model CentralSportV1._0._1.Models.AdminCreateAdmin
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/SharedPagesLayout.cshtml";
+}
+
+<br />
+<h2 class="text-md-center" style="color:yellow">Stvori novog admina u bazi podataka</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        <div class="form-group">
+            <div class="col-md-5" style="margin:auto">
+                Ime admina
+                @Html.EditorFor(model => model.imeAdmin, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.imeAdmin, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-5" style="margin:auto">
+                Lozinka
+                @Html.EditorFor(model => model.lozinka, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.lozinka, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-12 text-md-center">
+                <input type="submit" value="Stvori novog admina" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+<div class="Boja">
+    <br />
+    @Html.ActionLink("Natrag", "AdminManagePanel")
+    <br />
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

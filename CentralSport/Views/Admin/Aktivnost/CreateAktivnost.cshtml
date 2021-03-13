@@ -1,0 +1,48 @@
+﻿@model CentralSportV1._0._1.Models.AdminCreateAktivnost
+
+@{
+    ViewBag.Title = "CreateAktivnost";
+    Layout = "~/Views/Shared/SharedPagesLayout.cshtml";
+}
+
+<div class="prijefotera1">
+    <br />
+    <h2 class="text-md-center" style="color:yellow">Dodaj novu aktivnost u bazu podataka</h2>
+    <br />
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+         
+            <div class="form-group">
+                <div class="col-md-5" style="margin:auto">
+                    Ime sporta
+                    @Html.EditorFor(model => model.imeAktivnosti, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.imeAktivnosti, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12 text-md-center">
+                    <input type="submit" value="Dodaj novu aktivnost" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<div class="Boja4">
+    <hr />
+    <br />
+
+    @Html.ActionLink("Natrag na aktivnosti manage panel", "AktivnostiManagePanel")
+
+    <br />
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

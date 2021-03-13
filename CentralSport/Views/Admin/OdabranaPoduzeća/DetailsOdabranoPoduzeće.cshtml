@@ -1,0 +1,63 @@
+﻿@model CentralSportV1._0._1.Models.odabranapoduzećaindex
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/SharedPagesLayout.cshtml";
+}
+<div class="prijefotera1">
+    <br />
+    <div class="container bootstrap snippet">
+        <h1 class="text-primary text-md-center"><span class="glyphicon glyphicon-user"></span>Informacije o odabranom poduzeću</h1>
+        <br />
+        <br />
+        <div class="row">
+            <!-- left column -->
+            <div class="col-md-3">
+                <div class="text-center">
+                    @{
+                        if (Model.putanjaDoSlike == null)
+                        {
+                            <img src="@Url.Content("/Content/ControlImages/noPicturesYetPoduzeće.png")" class="img-thumbnail"> }
+                        else
+                        {
+                            <img src="@Url.Content(Model.putanjaDoSlike)" class="img-thumbnail" style="width:80%;height:80%;">
+                        }
+                    }
+                </div>
+            </div>
+
+            <!-- edit form column -->
+            <div class="col-md-9 personal-info">
+
+                <form class="form-horizontal" role="form">
+                    @*<div class="form-group">
+                            <label class="col-lg-3 control-label">Id poduzeća</label>
+                            <div class="col-lg-8">
+                                @Html.TextBoxFor(model => Model.idOdabranaPoduzećaIndex, new { @readonly = "readonly", @class = "form-control", @placeholder = "Još ništa..." })
+                            </div>
+                        </div>*@
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Ime poduzeća</label>
+                        <div class="col-lg-8">
+                            @Html.TextBoxFor(model => Model.imePoduzeća, new { @readonly = "readonly", @class = "form-control", @placeholder = "Još ništa..." })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-12 control-label">Kratki opis o poduzeću(mišljenja, doživljaji, iskustva itd.):</label>
+                        <div class="col-lg-8">
+                            @Html.TextAreaFor(model => Model.opisPoduzeća, new { @readonly = "readonly", @class = "form-control", @style = "resize: none;", @placeholder = "Još ništa o meni..." })
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="Boja4">
+    <hr />
+    <br />
+
+    @Html.ActionLink("Natrag na listu odabranih poduzeća", "OdabranaPoduzećaManageList")
+
+    <br />
+</div>

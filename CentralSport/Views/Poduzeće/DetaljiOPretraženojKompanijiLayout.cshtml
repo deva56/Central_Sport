@@ -1,0 +1,302 @@
+﻿@model Tuple<IEnumerable<CentralSportV1._0._1.Models.images>, CentralSportV1._0._1.Models.poduzeće>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@Page.Title</title>
+    @RenderSection("head", required: false)
+    <link rel="stylesheet" href=@Url.Content("/Content/template/Template1/assets/web/assets/mobirise-icons/mobirise-icons.css")>
+    <link rel="stylesheet" href=@Url.Content("/Content/template/Template1/assets/tether/tether.min.css")>
+    <link rel="stylesheet" href=@Url.Content("/Content/template/Template1/assets/bootstrap/css/bootstrap.min.css")>
+    <link rel="stylesheet" href=@Url.Content("/Content/template/Template1/assets/bootstrap/css/bootstrap-grid.min.css")>
+    <link rel="stylesheet" href=@Url.Content("/Content/template/Template1/assets/bootstrap/css/bootstrap-reboot.min.css")>
+    <link rel="stylesheet" href=@Url.Content("/Content/template/Template1/assets/socicon/css/styles.css")>
+    <link rel="stylesheet" href=@Url.Content("/Content/template/Template1/assets/theme/css/style.css")>
+    <link rel="stylesheet" href=@Url.Content("/Content/template/Template1/assets/mobirise/css/mbr-additional.css") type="text/css">
+    <!--ImageSlider-->
+    <link href="@Url.Content("/Content/imageSlider/flexslider.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("/Content/imageSlider/demo/css/demo.css")" rel="stylesheet" />
+    <link rel="stylesheet" href="@Url.Content("/Content/imageSlider/flexslider.css")" type="text/css" media="screen" />
+    <script src="@Url.Content("/Content/imageSlider/demo/js/demo.css")"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="@Url.Content("/Content/imageSlider/demo/js/jquery.flexslider.js")"></script>
+    <!--ImageSlider-->
+    @*<script src=@Url.Content("/Content/template/Template1/assets/web/assets/jquery/jquery.min.js")></script>
+    <script src=@Url.Content("/Content/template/Template1/assets/popper/popper.min.js")></script>
+    <script src=@Url.Content("/Content/template/Template1/assets/tether/tether.min.js")></script>
+    <script src=@Url.Content("/Content/template/Template1/assets/bootstrap/js/bootstrap.min.js")></script>
+    <script src=@Url.Content("/Content/template/Template1/assets/smoothscroll/smooth-scroll.js")></script>
+    <script src=@Url.Content("/Content/template/Template1/assets/vimeoplayer/jquery.mb.vimeo_player.js")></script>
+    <script src=@Url.Content("/Content/template/Template1/assets/parallax/jarallax.min.js")></script>
+    <script src=@Url.Content("/Content/template/Template1/assets/theme/js/script.js")></script>*@
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            InitializeImageSlider();
+        });
+        function InitializeImageSlider() {
+            $('.flexslider').flexslider({
+                animation: "slide",
+                controlNav: true,
+                directionNav: true,
+                itemWidth: "50%",
+                itemHeight: "50%"
+            });
+        }
+    </script>
+
+    <style>
+        .gumb {
+            text-align: center;
+            margin: auto;
+            width: 250px;
+            height: auto;
+            padding: 2px;
+            border-radius: 10px;
+        }
+        .Crta {
+            border-top: solid;
+            color: #AEB404;
+            max-width: 100%;
+            margin: auto;
+            box-shadow: 0px 2px 8px #AEB404;
+        }
+    </style>
+
+</head>
+<body>
+    <section class="step3 cid-rqTqIRb6CY" id="step3-p">
+        <div class="container">
+            <br />
+            <h3 class="mbr-section-subtitle pb-5 mbr-fonts-style align-center display-5" style="color:yellow">@Html.DisplayFor(model => Model.Item2.imePoduzeće)</h3>
+            <div class="Crta"></div>
+            <br />
+            <br />
+            <div class="media-container-row">
+                <div class="media-block" style="width: 50%; margin:auto; height: 50%">
+                    <div class="mbr-figure">
+                        <div class="flexslider">
+                            <ul class="slides">
+                                @if (Model.Item1.Count() > 0)
+                                {
+                                    foreach (var item in Model.Item1)
+                                    {
+                                        <li>
+                                            <img src="@Url.Content(item.imagePathOnDisk)" style="height:400px" />
+                                        </li>
+                                    }
+                                }
+                                else
+                                {
+                                    <li>
+                                        <img src="@Url.Content("/Content/ControlImages/noPicturesYetPoduzeće.png")" />
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="step-container">
+                    <div class="card separline pb-4">
+                        <div class="step-element d-flex">
+                            <div class="step-wrapper pr-3">
+                                <div class="step d-flex align-items-center justify-content-center">
+                                    1
+                                </div>
+                            </div>
+                            <div class="step-text-content">
+                                <h4 class="mbr-step-title pb-3 mbr-fonts-style display-5">Primarna djelatnost poduzeća</h4>
+                                <p class="mbr-step-text mbr-fonts-style display-7" style="color:whitesmoke">
+                                    @{
+                                        if (Model.Item2.primarnaDjelatnostPoduzeće == null)
+                                        {
+                                        <p class="mbr-step-text mbr-fonts-style display-7" style="color:whitesmoke">Još ništa...</p>
+                                    }
+                                    else
+                                    {
+                                        @Html.DisplayFor(model => Model.Item2.primarnaDjelatnostPoduzeće)
+                                    }
+                                    }
+                                <p />
+                                </div>
+                        </div>
+                    </div>
+
+                    <div class="card separline pb-4">
+                        <div class="step-element d-flex">
+                            <div class="step-wrapper pr-3">
+                                <div class="step d-flex align-items-center justify-content-center">
+                                    2
+                                </div>
+                            </div>
+                            <div class="step-text-content">
+                                <h4 class="mbr-step-title pb-3 mbr-fonts-style display-5">Opis poduzeća</h4>
+                                <p class="mbr-step-text mbr-fonts-style display-7" style="color:whitesmoke">
+                                    @{
+                                        if (Model.Item2.opisPoduzeće == null)
+                                        {
+                                        <p class="mbr-step-text mbr-fonts-style display-7" style="color:whitesmoke">Još ništa...</p>
+                                    }
+                                    else
+                                    {
+                                        @Html.TextAreaFor(model => Model.Item2.opisPoduzeće, new { @readonly = "readonly", @class = "form-control", @style = "resize: none; width : 400px;", @placeholder = "Još ništa o nama..." })
+                                    }
+                                    }
+                                <p/>
+                                </div>
+                        </div>
+                    </div>
+
+                    <div class="card separline pb-4">
+                        <div class="step-element d-flex">
+                            <div class="step-wrapper pr-3">
+                                <div class="step d-flex align-items-center justify-content-center">
+                                    3
+                                </div>
+                            </div>
+                            <div class="step-text-content">
+                                <h4 class="mbr-step-title pb-3 mbr-fonts-style display-5">Grad</h4>
+                                <p class="mbr-step-text mbr-fonts-style display-7" style="color:whitesmoke">
+                                    @{
+                                        if (Model.Item2.gradPoduzeće == null)
+                                        {
+                                        <p class="mbr-step-text mbr-fonts-style display-7" style="color:whitesmoke">Još ništa...</p>
+                                    }
+                                    else
+                                    {
+                                        @Html.DisplayFor(model => Model.Item2.gradPoduzeće)
+                                    }
+                                    }
+                                    </p>
+                                </div>
+                        </div>
+                    </div>
+
+                    <div class="card separline pb-4">
+                        <div class="step-element d-flex">
+                            <div class="step-wrapper pr-3">
+                                <div class="step d-flex align-items-center justify-content-center">
+                                    4
+                                </div>
+                            </div>
+                            <div class="step-text-content">
+                                <h4 class="mbr-step-title pb-3 mbr-fonts-style display-5">
+                                    Županija
+                                </h4>
+                                <p class="mbr-step-text mbr-fonts-style display-7" style="color:whitesmoke">
+                                    @{
+                                        if (Model.Item2.županijaPoduzeće == null)
+                                        {
+                                        <p class="mbr-step-text mbr-fonts-style display-7" style="color:whitesmoke">Još ništa...</p>
+                                    }
+                                    else
+                                    {
+                                        @Html.DisplayFor(model => Model.Item2.županijaPoduzeće)
+                                    }
+                                    }
+                                    </p>
+                                </div>
+                        </div>
+                    </div>
+
+                    <div class="card separline pb-4">
+                        <div class="step-element d-flex">
+                            <div class="step-wrapper pr-3">
+                                <div class="step d-flex align-items-center justify-content-center">
+                                    5
+                                </div>
+                            </div>
+                            <div class="step-text-content">
+                                <h4 class="mbr-step-title pb-3 mbr-fonts-style display-5">
+                                    Ulica
+                                </h4>
+                                <p class="mbr-step-text mbr-fonts-style display-7" style="color:whitesmoke">
+                                    @{
+                                        if (Model.Item2.ulicaPoduzeće == null)
+                                        {
+                                        <p class="mbr-step-text mbr-fonts-style display-7" style="color:whitesmoke">Još ništa...</p>
+                                    }
+                                    else
+                                    {
+                                        @Html.DisplayFor(model => Model.Item2.ulicaPoduzeće)
+                                    }
+                                    }
+                                    </p>
+                                </div>
+                        </div>
+                    </div>
+
+                    <div class="card separline pb-4">
+                        <div class="step-element d-flex">
+                            <div class="step-wrapper pr-3">
+                                <div class="step d-flex align-items-center justify-content-center">
+                                    6
+                                </div>
+                            </div>
+                            <div class="step-text-content">
+                                <h4 class="mbr-step-title pb-3 mbr-fonts-style display-5">
+                                    Kontakt e-mail
+                                </h4>
+                                <p class="mbr-step-text mbr-fonts-style display-7" style="color:whitesmoke">
+                                    @{
+                                        if (Model.Item2.kontaktEmail == null)
+                                        {
+                                        <p class="mbr-step-text mbr-fonts-style display-7" style="color:whitesmoke">Još ništa...</p>
+                                    }
+                                    else
+                                    {
+                                        @Html.DisplayFor(model => Model.Item2.kontaktEmail)
+                                    }
+                                    }
+                                    </p>
+                                </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="step-element d-flex">
+                            <div class="step-wrapper pr-3">
+                                <div class="step d-flex align-items-center justify-content-center">
+                                    7
+                                </div>
+                            </div>
+                            <div class="step-text-content">
+                                <h4 class="mbr-step-title pb-3 mbr-fonts-style display-5">
+                                    Kontakt telefon
+                                </h4>
+                                <p class="mbr-step-text mbr-fonts-style display-7" style="color:whitesmoke">
+                                    @{
+                                        if (Model.Item2.kontaktTelefon == null)
+                                        {
+                                        <p class="mbr-step-text mbr-fonts-style display-7" style="color:whitesmoke">Još ništa...</p>
+                                    }
+                                    else
+                                    {
+                                        @Html.DisplayFor(model => Model.Item2.kontaktTelefon)
+                                    }
+                                    }
+                                    </p>
+                                </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <br />
+        <hr />
+        <br />
+        <!--Dio sa gumbom za povratak na početnu stranicu-->
+        <div class="gumb">
+            <a href='@Url.Action("RedirectToPretraživanje", "Home")' class="btn btn-primary">Natrag na početnu stranicu</a>
+        </div>
+    </section>
+
+
+    @RenderBody()
+
+</body>
+    </html>
+
+
+

@@ -1,0 +1,19 @@
+﻿@model CentralSportV1._0._1.Models.PretražiKompanijeJednostavniFilter
+
+@using (Html.BeginForm("VratiPretragu", "Poduzeće", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    <div class="form-group col-md-8" style="margin:auto">
+        @Html.TextBoxFor(m => m.pojamPretraživanja, new { @class = "form-control", @placeholder = "Ime poduzeća" })
+        @Html.DropDownListFor(m => m.županija, Model.Županije, "Odaberite županiju", new { @class = "form-control" })
+        @Html.DropDownListFor(m => m.grad, Model.Gradovi, "Odaberite grad", new { @class = "form-control" })
+        @Html.DropDownListFor(m => m.sport, Model.Sportovi, "Odaberite aktivnost", new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-12 text-center">
+            <input type="submit" class="btn btn-primary" value="Pretraži" />
+        </div>
+    </div>
+}

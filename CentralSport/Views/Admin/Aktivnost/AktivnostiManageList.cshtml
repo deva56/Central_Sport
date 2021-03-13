@@ -1,0 +1,46 @@
+﻿@model IEnumerable<CentralSportV1._0._1.Models.sportovi>
+
+@{
+    ViewBag.Title = "AktivnostiManageList";
+    Layout = "~/Views/Shared/SharedPagesLayout.cshtml";
+}
+
+
+    <br />
+    <div class="vrati">
+        <table class="table">
+            <tr>
+                <th>
+                    Id aktivnosti
+                </th>
+                <th>
+                    Ime aktivnosti
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.idSportovi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.imeSporta)
+                    </td>
+                    <td align="right">
+                        @Html.ActionLink("Ažuriraj", "EditAktivnost", new { id = item.idSportovi }) |
+                        @Html.ActionLink("Obriši", "DeleteAktivnost", new { id = item.idSportovi })
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+
+    <div class="Boja">
+        <hr />
+        <br />
+
+        @Html.ActionLink("Natrag", "AktivnostiManagePanel")
+
+        <br />
+    </div>

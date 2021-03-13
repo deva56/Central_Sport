@@ -1,0 +1,426 @@
+﻿@model Tuple<CentralSportV1._0._1.Models.PretražiKompanijeJednostavniFilter, IEnumerable<CentralSportV1._0._1.Models.odabranapoduzećaindex>, CentralSportV1._0._1.Models.SendEmail>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    @RenderSection("head", required: false)
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="generator" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <link rel="shortcut icon" href=@Url.Content("/Content/template/Template1/assets/images/logo4.png") type="image/x-icon">
+    <meta name="description" content="">
+
+    <title>Central Sport</title>
+    <link rel="stylesheet" href=@Url.Content("/Content/template/Template1/assets/web/assets/mobirise-icons/mobirise-icons.css")>
+    <link rel="stylesheet" href=@Url.Content("/Content/template/Template1/assets/tether/tether.min.css")>
+    <link rel="stylesheet" href=@Url.Content("/Content/template/Template1/assets/bootstrap/css/bootstrap.min.css")>
+    <link rel="stylesheet" href=@Url.Content("/Content/template/Template1/assets/bootstrap/css/bootstrap-grid.min.css")>
+    <link rel="stylesheet" href=@Url.Content("/Content/template/Template1/assets/bootstrap/css/bootstrap-reboot.min.css")>
+    <link rel="stylesheet" href=@Url.Content("/Content/template/Template1/assets/socicon/css/styles.css")>
+    <link rel="stylesheet" href=@Url.Content("/Content/template/Template1/assets/theme/css/style.css")>
+    <link rel="stylesheet" href=@Url.Content("/Content/template/Template1/assets/mobirise/css/mbr-additional.css") type="text/css">
+
+    <style>
+        .Crta {
+            border-top: solid;
+            color: #AEB404;
+            max-width: 100%;
+            margin: auto;
+            box-shadow: 0px 2px 8px #AEB404;
+        }
+        .textn {
+            color: yellow;
+        }
+        .texts {
+            color: white;
+            font-size:22px;
+        }
+        .textq {
+            color: white;
+        }
+
+        .bijela{
+            color:white;
+        }
+    </style>
+</head>
+
+<body>
+    <!--Dio sa headerom i općim informacijama-->
+    <section class="header12 cid-rqaR0RY5EK mbr-fullscreen mbr-parallax-background" id="header12-b">
+        <div class="mbr-overlay" style="opacity: 0.4; background-color: rgb(35, 35, 35);">
+        </div>
+        <div class="container">
+            <div class="col-md-12  align-right">
+                @Html.Partial("_LoginPartial")
+            </div>
+            <div class="media-container">
+                <div class="col-md-12 align-center">
+                    <h1 class="mbr-section-title pb-3 mbr-white mbr-bold mbr-fonts-style display-1"><em><a><i>Central Sport</i></a></em></h1>
+                    <p class="mbr-text pb-3 mbr-white mbr-fonts-style display-5">
+                        Nađi sportsku uslugu baš po svome izboru!
+                    </p>
+                    <div class="icons-media-container mbr-white">
+
+                        <div class="card col-12 col-md-6 col-lg-3">
+                            <div class="icon-block">
+                                <a onclick='scrollToElement("step1-f");'>
+                                    <span class="mbr-iconfont mbri-search"></span>
+                                </a>
+                            </div>
+                            <h5 class="mbr-fonts-style display-5">
+                                <a onclick='scrollToElement("step1-f");'>
+                                    Pretraživanje
+                                </a>
+                            </h5>
+                        </div>
+
+                        <div class="card col-12 col-md-6 col-lg-3">
+                            <div class="icon-block">
+                                <a onclick='scrollToElement("testimonials1-d");'>
+                                    <span class="mbr-iconfont mbri-idea"></span>
+                                </a>
+                            </div>
+                            <h5 class="mbr-fonts-style display-5">
+                                <a onclick='scrollToElement("testimonials1-d");'>
+                                    Priče poduzeća
+                                </a>
+                            </h5>
+                        </div>
+
+                        <div class="card col-12 col-md-6 col-lg-3">
+                            <div class="icon-block">
+                                <a href="@Url.Action("Register", "Account")">
+                                    <span class="mbr-iconfont mbri-users"></span>
+                                </a>
+                            </div>
+                            <h5 class="mbr-fonts-style display-5">
+                                <a>
+                                    @Html.ActionLink("Registriraj se", "Register", "Account")
+                                </a>
+                            </h5>
+                        </div>
+                        <div class="card col-12 col-md-6 col-lg-3">
+                            <div class="icon-block">
+                                <a onclick='scrollToElement("contacts1-k");'>
+                                    <span class="mbr-iconfont mbri-alert"></span>
+                                </a>
+                            </div>
+                            <h5 class="mbr-fonts-style display-5">
+                                <a onclick='scrollToElement("contacts1-k");'>
+                                    Kontakt
+                                </a>
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Kraj dijela sa headerom i općim informacijama-->
+    <!--Filter za pretraživanje-->
+    <section class="step1 cid-rqaZAnTfmG" id="step1-f">
+        <div class="container">
+            <h2 class="mbr-section-title pb-3 mbr-fonts-style align-center display-2"><br>Pretraživanje</h2>
+            <div class="container">
+                @Html.Partial("FilterPretraživanja", Model.Item1)
+            </div>
+        </div>
+    </section>
+    <!--Kraj filtera za pretraživanje-->
+    <!--Dio sa informacijama o odabranim poduzećima-->
+    <section class="testimonials1 cid-rqaWkLlvUl" id="testimonials1-d">
+        <div class="container">
+            <div class="Crta"></div>
+            <br />
+            <br />
+            <div class="media-container-row">
+                <div class="title col-12 align-center">
+                    <h2 class="pb-3 mbr-fonts-style display-2">
+                        <em>
+                            <strong>
+                                Central Sport!
+                            </strong>
+                        </em>
+                    </h2>
+                    <h3 class="mbr-section-subtitle mbr-light pb-3 mbr-fonts-style display-5">
+                        Sve manje ljudi se bavi sportom. Zbog nedostatka vremena, volje ili ne znanja o sportskim mogućnostima
+                        pored sebe. Za prve dvije stvari mi Vam ne možemo pomoći. Oko treće ipak da. Glavni cilj nam je bio da spojimo ljude na brz i jednostavan način sa svim sportskim mjestima u državi. Tako u roku od par minuta možete saznati sve što želite
+                        o sportu i lokaciji koja vas najviše zanima.
+                    </h3>
+                    <br />
+                    <h2>Što poduzeća misle o nama</h2>
+                </div>
+            </div>
+        </div>
+        <div class="container pt-3 mt-2">
+            <div class="media-container-row">
+                @Html.Partial("OdabranaPoduzeća", Model.Item2)
+            </div>
+        </div>
+    </section>
+    <!--Kraj dijela sa informacijama o odabranim poduzećima-->
+    <!--Dio sa informacijama o autorima aplikacije-->
+    <section class="carousel slide testimonials-slider cid-rqb295nn8X" data-interval="false" id="testimonials-slider1-j">
+        <div class="container text-center">
+            <div class="Crta"></div>
+            <br />
+            <br />
+            <h1 class="textn">Autori aplikacije</h1>
+            <br />
+            <div class="carousel slide" role="listbox" data-pause="true" data-keyboard="false" data-ride="false" data-interval="false">
+                <div class="carousel-inner">
+                    <div class="carousel-item">
+                        <div class="user col-md-8">
+                            <div class="user_image">
+                                <img src=@Url.Content("/Content/template/Template1/assets/images/antonio.jpg")>
+                            </div>
+                            <div class="user_name mbr-bold pb-2 mbr-fonts-style display-7">
+                                Antonio
+                            </div>
+                            <div class="display-7 textq">
+                                Vođa tima
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="user col-md-8">
+                            <div class="user_image">
+                                <img src=@Url.Content("/Content/template/Template1/assets/images/lea.jpg")>
+                            </div>
+                            <div class="user_name mbr-bold pb-2 mbr-fonts-style display-7">
+                                Lea
+                            </div>
+                            <div class="display-7 textq">
+                                Front-end dizajner i programer
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="user col-md-8">
+                            <div class="user_image">
+                                <img src=@Url.Content("/Content/template/Template1/assets/images/manuela.jpg")>
+                            </div>
+                            <div class="user_name mbr-bold pb-2 mbr-fonts-style display-7">
+                                Manuela
+                            </div>
+                            <div class="display-7 textq">
+                                Front-end dizajner i programer
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="user col-md-8">
+                            <div class="user_image">
+                                <img src=@Url.Content("/Content/template/Template1/assets/images/ivan.jpg")>
+                            </div>
+                            <div class="user_name mbr-bold pb-2 mbr-fonts-style display-7">
+                                Ivan
+                            </div>
+                            <div class="display-7 textq">
+                                Back-end programer
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="user col-md-8">
+                            <div class="user_image">
+                                <img src=@Url.Content("/Content/template/Template1/assets/images/filip.jpg")>
+                            </div>
+                            <div class="user_name mbr-bold pb-2 mbr-fonts-style display-7">
+                                Filip
+                            </div>
+                            <div class="display-7 textq">
+                                Back-end programer
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="user col-md-8">
+                            <div class="user_image">
+                                <img src=@Url.Content("/Content/template/Template1/assets/images/jura.jpg")>
+                            </div>
+                            <div class="user_name mbr-bold pb-2 mbr-fonts-style display-7">
+                                Jura
+                            </div>
+                            <div class="display-7 textq">
+                                Projektant i programer baze podataka
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="carousel-controls">
+                    <a class="carousel-control-prev" role="button" data-slide="prev">
+                        <span aria-hidden="true" class="mbri-arrow-prev mbr-iconfont"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" role="button" data-slide="next">
+                        <span aria-hidden="true" class="mbri-arrow-next mbr-iconfont"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Kraj dijela sa informacijama o autorima aplikacije-->
+    <!--Početak dijela sa kontakt podatcima-->
+    <section class="mbr-section contacts1 cid-rqb5rIdJmP" id="contacts1-k">
+        <div class="container">
+            <div class="Crta"></div>
+            <br />
+            <br />
+            <div class="row">
+                <!--Titles-->
+                <div class="title col-12">
+                    <h2 class="align-left mbr-fonts-style display-2">
+                        Naši kontakt podatci
+                    </h2>
+                </div>
+                <!--Left-->
+                <div class="col-12 col-md-6">
+                    <div class="left-block wrapper">
+                        <div class="b b-adress">
+                            <h5 class="align-left mbr-fonts-style m-0 display-5">
+                                Adresa:
+                            </h5>
+                            <p class="mbr-text align-left mbr-fonts-style display-7">
+                                Ul. bana Josipa Jelačića 22, 40000, Čakovec
+                            </p>
+                        </div>
+                        <div class="b b-phone">
+                            <h5 class="align-left mbr-fonts-style m-0 display-5">
+                                Telefon:
+                            </h5>
+                            <p class="mbr-text align-left mbr-fonts-style display-7">
+                                +385 (040) 333 333
+                            </p>
+                        </div>
+                        <div class="b b-mail">
+                            <h5 class="align-left mbr-fonts-style m-0 display-5">
+                                E-mail:
+                            </h5>
+                            <p class="mbr-text align-left mbr-fonts-style display-7">
+                                centralSport@gmail.com
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!--Right-->
+                <div class="col-12 col-md-6">
+                    <div class="google-map"><iframe frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAEIpgj38KyLFELm2bK9Y7krBkz1K-cMq8&amp;q=place_id:ChIJn6wOs6lZwokRLKy1iqRcoKw" allowfullscreen=""></iframe></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Kraj dijela sa kontakt podatcima-->
+    <!--Dio sa kontakt formom-->
+    <section class="mbr-section form1 cid-rqb0r77nl0" id="form1-g">
+        <div class="container">
+            <div class="Crta"></div>
+            <br />
+            <br />
+            <div class="row justify-content-center">
+                <div class="title col-12 col-lg-8">
+                    <h2 class="mbr-section-title align-center pb-3 mbr-fonts-style display-2">
+                        Kontaktirajte nas.
+                    </h2>
+                    <h3 class="texts">
+                        Ako imate bilo kakvih pitanja ili ste zainteresirani za suradnju možete nam se javiti
+                        i preko ove kontakt forme.
+                    </h3>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="media-container-column col-lg-8" data-form-type="formoid">
+                    @Html.Partial("KontaktForma", Model.Item3)
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Kraj kontakt forme-->
+    <!--Dio sa linkovima na naše društvene mreže te prečacima na različite dijelove stranice-->
+    <section once="footers" class="cid-rqaU7b5ROM" id="footer7-c">
+        <div class="container">
+            <div class="media-container-row align-center mbr-white">
+                <div class="row row-links">
+                    <ul class="foot-menu">
+                        <li class="foot-menu-item mbr-fonts-style display-7"><a style="color:yellow" onclick='scrollToElement("header12-b");'>Početna</a></li>
+                        <li class="foot-menu-item mbr-fonts-style display-7"><a style="color:yellow" onclick='scrollToElement("step1-f");'>Pretraživanje</a></li>
+                        <li class="foot-menu-item mbr-fonts-style display-7"><a href="@Url.Action("Register", "Account")">Registriraj se</a></li>
+                        <li class="foot-menu-item mbr-fonts-style display-7"><a style="color:yellow" onclick='scrollToElement("contacts1-k");'>Kontakt</a></li>
+                    </ul>
+                </div>
+                <div class="row social-row">
+                    <div class="social-list align-right pb-2">
+
+                        <div class="soc-item">
+                            <a>
+                                <span class="socicon-twitter socicon mbr-iconfont mbr-iconfont-social"></span>
+                            </a>
+                        </div><div class="soc-item">
+                            <a>
+                                <span class="socicon-facebook socicon mbr-iconfont mbr-iconfont-social"></span>
+                            </a>
+                        </div><div class="soc-item">
+                            <a>
+                                <span class="socicon-youtube socicon mbr-iconfont mbr-iconfont-social"></span>
+                            </a>
+                        </div><div class="soc-item">
+                            <a>
+                                <span class="socicon-instagram socicon mbr-iconfont mbr-iconfont-social"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-copirayt">
+                    <p>&copy; @DateTime.Now.Year. - Central Sport</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!--Kraj dijela sa linkovima na društvene mreže i prečacima na različite dijelove aplikacije-->
+
+
+
+    <script src=@Url.Content("/Content/template/Template1/assets/web/assets/jquery/jquery.min.js")></script>
+    <script src=@Url.Content("/Content/template/Template1/assets/popper/popper.min.js")></script>
+    <script src=@Url.Content("/Content/template/Template1/assets/tether/tether.min.js")></script>
+    <script src=@Url.Content("/Content/template/Template1/assets/bootstrap/js/bootstrap.min.js")></script>
+    <script src=@Url.Content("/Content/template/Template1/assets/smoothscroll/smooth-scroll.js")></script>
+    <script src=@Url.Content("/Content/template/Template1/assets/vimeoplayer/jquery.mb.vimeo_player.js")></script>
+    <script src=@Url.Content("/Content/template/Template1/assets/parallax/jarallax.min.js")></script>
+    <script src=@Url.Content("/Content/template/Template1/assets/theme/js/script.js")></script>
+    <script type='text/javascript'>
+        function scrollToElement(id) {
+            //Get target
+            var target = document.getElementById(id).offsetTop;
+
+            //Scrolls to that target location
+            window.scrollTo({
+                left: 0,
+                top: target,
+                behavior: "smooth"
+            });
+        }
+    </script>
+
+    @Scripts.Render(@Url.Content("/Content/template/Template1/assets/web/assets/jquery/jquery.min.js"))
+    @Scripts.Render(@Url.Content("/Content/template/Template1/assets/popper/popper.min.js"))
+    @Scripts.Render(@Url.Content("/Content/template/Template1/assets/tether/tether.min.js"))
+    @Scripts.Render(@Url.Content("/Content/template/Template1/assets/bootstrap/js/bootstrap.min.js"))
+    @Scripts.Render(@Url.Content("/Content/template/Template1/assets/smoothscroll/smooth-scroll.js"))
+    @Scripts.Render(@Url.Content("/Content/template/Template1/assets/vimeoplayer/jquery.mb.vimeo_player.js"))
+    @Scripts.Render(@Url.Content("/Content/template/Template1/assets/parallax/jarallax.min.js"))
+    @Scripts.Render(@Url.Content("/Content/template/Template1/assets/theme/js/script.js"))
+    @RenderSection("scripts", required: false)
+
+    @RenderBody()
+</body>
+</html>

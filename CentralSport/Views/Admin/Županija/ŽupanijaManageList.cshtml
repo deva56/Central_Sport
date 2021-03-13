@@ -1,0 +1,45 @@
+﻿@model IEnumerable<CentralSportV1._0._1.Models.županije>
+
+@{
+    ViewBag.Title = "ŽupanijaManageList";
+    Layout = "~/Views/Shared/SharedPagesLayout.cshtml";
+}
+
+<br />
+<div class="vrati">
+    <table class="table">
+        <tr>
+            <th>
+                Id županije
+            </th>
+            <th>
+                Ime županije
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.idŽupanija)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.imeŽupanije)
+                </td>
+                <td align="right">
+                    @Html.ActionLink("Ažuriraj", "EditŽupanija", new { id = item.idŽupanija }) |
+                    @Html.ActionLink("Obriši", "DeleteŽupanija", new { id = item.idŽupanija })
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+<div class="Boja">
+    <hr />
+    <br />
+
+    @Html.ActionLink("Natrag", "ŽupanijaManagePanel")
+
+    <br />
+</div>

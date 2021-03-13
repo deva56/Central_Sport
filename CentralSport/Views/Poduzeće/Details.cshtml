@@ -1,0 +1,92 @@
+﻿@using Microsoft.AspNet.Identity
+@model CentralSportV1._0._1.Models.poduzeće
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/SharedPagesLayout.cshtml";
+}
+
+<br />
+
+<div class="container bootstrap snippet">
+    <h1 class="text-primary text-md-center"><span class="glyphicon glyphicon-user"></span>Informacije o poduzeću</h1>
+    <br />
+    <br />
+    <div class="row">
+        <!-- left column -->
+        <div class="col-md-3">
+        </div>
+        <!-- edit form column -->
+        <div class="col-md-9 personal-info">
+
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Ime poduzeća:</label>
+                    <div class="col-lg-8">
+                        @Html.TextBoxFor(model => model.imePoduzeće, new { @readonly = "readonly", @class = "form-control", @placeholder = "Još ništa..." })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Primarna djelatnost:</label>
+                    <div class="col-lg-8">
+                        @Html.TextBoxFor(model => model.primarnaDjelatnostPoduzeće, new { @readonly = "readonly", @class = "form-control", @placeholder = "Još ništa..." })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-12 control-label">Kratki opis o poduzeću(usluge, treneri, termini i sl.):</label>
+                    <div class="col-lg-8">
+                        @Html.TextAreaFor(model => model.opisPoduzeće, new { @readonly = "readonly", @class = "form-control", @style = "resize: none;", @placeholder = "Još ništa o nama..." })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Županija:</label>
+                    <div class="col-lg-8">
+                        @Html.TextBoxFor(model => model.županijaPoduzeće, new { @readonly = "readonly", @class = "form-control" })
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Grad:</label>
+                    <div class="col-lg-8">
+                        @Html.TextBoxFor(model => model.gradPoduzeće, new { @readonly = "readonly", @class = "form-control", @placeholder = "Još ništa..." })
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Ulica:</label>
+                    <div class="col-lg-8">
+                        @Html.TextBoxFor(model => model.ulicaPoduzeće, new { @readonly = "readonly", @class = "form-control", @placeholder = "Još ništa..." })
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Kontakt email:</label>
+                    <div class="col-lg-8">
+                        @Html.TextBoxFor(model => model.kontaktEmail, new { @readonly = "readonly", @class = "form-control", @placeholder = "Još ništa..." })
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Kontakt telefon:</label>
+                    <div class="col-lg-8">
+                        @Html.TextBoxFor(model => model.kontaktTelefon, new { @readonly = "readonly", @class = "form-control", @placeholder = "Još ništa..." })
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<br />
+<div class="Boja">
+    <hr />
+
+    <p>
+        @Html.ActionLink("Ažuriraj svoje podatke", "Edit", new { id = Model.idPoduzeće }) |
+        @Html.ActionLink("Upravljaj slikama poduzeća", "UpravljanjeSlikama", new { idPoduzeća = Model.idPoduzeće }) |
+        @Html.ActionLink("Natrag na početnu stranicu", "Index", "Home")
+    </p>
+
+    <br />
+</div>

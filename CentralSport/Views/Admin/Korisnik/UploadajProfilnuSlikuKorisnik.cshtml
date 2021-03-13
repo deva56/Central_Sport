@@ -1,0 +1,20 @@
+﻿@using Microsoft.AspNet.Identity
+@model CentralSportV1._0._1.Models.UploadImagesModels
+
+<div class="col-md-12">
+    @using (Html.BeginForm("UpravljanjeSlikomProfilaKorisnik", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.HiddenFor(model => Model.idKorisnika)
+        <div class="form-group">
+            <div class="col-md-12 text-md-center" style="margin:auto">
+                <input type="file" id="fileLoader" name="ImageFile" style="margin:auto" />
+            </div>
+        </div>
+        <br />
+        <div class="form-group">
+            <div class="col-md-12 text-md-center" style="margin:auto">
+                <input type="submit" value="Spremi sliku" class="btn btn-primary" style="font-size:smaller;width:auto;height:auto;margin:auto" />
+            </div>
+        </div>
+    }
+</div>

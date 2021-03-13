@@ -1,0 +1,25 @@
+﻿@model IEnumerable<CentralSportV1._0._1.Models.odabranapoduzećaindex>
+
+
+@foreach (var i in Model)
+{
+    <div class="mbr-testimonial p-3 align-center col-12 col-md-6 col-lg-4">
+        <div class="panel-item p-3">
+            <div class="card-block">
+                <div class="testimonial-photo">
+                    <a> @*<a href="@Url.Action("DetaljiOPretraženojKompaniji",  "Poduzeće", new { idPoduzeća = i.idOdabranaPoduzećaIndex })">*@
+                        <img src="@Url.Content(i.putanjaDoSlike)" />
+                    </a>
+                </div>
+                <p class="mbr-text mbr-fonts-style display-7">
+                    @i.opisPoduzeća
+                </p>
+            </div>
+            <div class="card-footer">
+                <div class="mbr-author-name mbr-bold mbr-fonts-style display-7">
+                    @i.imePoduzeća
+                </div>
+            </div>
+        </div>
+    </div>
+}

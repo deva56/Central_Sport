@@ -1,0 +1,59 @@
+﻿@{
+    ViewBag.Title = "AdminMainManagingMenu";
+    Layout = "~/Views/Shared/SharedPagesLayout.cshtml";
+}
+
+<br />
+<div class="col-md-12 align-center">
+    <h2>Admin upravljačka ploča</h2>
+</div>
+<hr />
+<br />
+<div class="form-group">
+    <div class="col-md-12 text-center">
+        <a href="@Url.Action("KorisnikManagePanel", "Admin")">Upravljaj korisnicima</a>
+    </div>
+</div>
+<div class="prijefotera">
+    <br />
+    <div class="form-group">
+        <div class="col-md-12 text-center">
+            <a href="@Url.Action("PoduzećeManagePanel", "Admin")">Upravljaj poduzećima</a>
+        </div>
+    </div>
+    <br />
+    <div class="form-group">
+        <div class="col-md-12 text-center">
+            <a href="@Url.Action("GradManagePanel", "Admin")">Upravljaj gradovima</a>
+        </div>
+    </div>
+    <br />
+    <div class="form-group">
+        <div class="col-md-12 text-center">
+            <a href="@Url.Action("ŽupanijaManagePanel", "Admin")">Upravljaj županijama</a>
+        </div>
+    </div>
+    <br />
+    <div class="form-group">
+        <div class="col-md-12 text-center">
+            <a href="@Url.Action("AktivnostiManagePanel", "Admin")">Upravljaj aktivnostima</a>
+        </div>
+    </div>
+    <br />
+    <div class="form-group">
+        <div class="col-md-12 text-center">
+            <a href="@Url.Action("OdabranaPoduzećaPanel", "Admin")">Upravljaj odabranim poduzećima na početnoj stranici</a>
+        </div>
+    </div>
+    <br />
+    <div class="form-group">
+        <div class="col-md-12 text-center">
+            <a href="@Url.Action("AdminManagePanel", "Admin")">Upravljaj adminima</a>
+        </div>
+    </div>
+</div>
+<div class="Boja1">
+   
+    <hr />
+    @Html.ActionLink("Natrag na početnu stranicu", "Index", "Home")
+</div>

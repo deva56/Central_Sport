@@ -1,0 +1,47 @@
+﻿@model CentralSportV1._0._1.Models.sportovi
+
+@{
+    ViewBag.Title = "EditGradovi";
+    Layout = "~/Views/Shared/SharedPagesLayout.cshtml";
+}
+
+<div class="prijefotera1">
+    <br />
+    <h2 class="text-md-center" style="color:yellow">Ažuriranje informacija o aktivnosti</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.idSportovi)
+
+            <div class="form-group">
+                <div class="col-md-5" style="margin:auto">
+                    Ime aktivnosti
+                    @Html.EditorFor(model => model.imeSporta, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.imeSporta, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12 text-md-center">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<div class="Boja4">
+    <hr />
+    <br />
+
+    @Html.ActionLink("Natrag na listu aktivnosti", "AktivnostiManageList")
+
+    <br />
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

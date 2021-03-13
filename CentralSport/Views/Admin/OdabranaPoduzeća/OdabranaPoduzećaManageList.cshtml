@@ -1,0 +1,53 @@
+﻿@model IEnumerable<CentralSportV1._0._1.Models.odabranapoduzećaindex>
+
+@{
+    ViewBag.Title = "OdabranaPoduzećaManageList";
+    Layout = "~/Views/Shared/SharedPagesLayout.cshtml";
+}
+
+    <br />
+    <div class="vrati">
+        <table class="table">
+            <tr>
+                <th>
+                    Id poduzeća
+                </th>
+                <th>
+                    Ime poduzeća
+                </th>
+                <th>
+                    Putanja na disku do odabrane naslovne slike
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.idOdabranaPoduzećaIndex)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.imePoduzeća)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.putanjaDoSlike)
+                    </td>
+                    <td align="right">
+                        @Html.ActionLink("Ažuriraj", "EditOdabranoPoduzeće", new { id = item.idOdabranaPoduzećaIndex }) |
+                        @Html.ActionLink("Detaljno", "DetailsOdabranoPoduzeće", new { id = item.idOdabranaPoduzećaIndex }) |
+                        @Html.ActionLink("Obriši poduzeće iz liste odabranih poduzeća", "DeleteOdabranoPoduzeće", new { id = item.idOdabranaPoduzećaIndex })
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+
+    <div class="Boja">
+        <hr />
+        <br />
+
+        @Html.ActionLink("Natrag", "OdabranaPoduzećaPanel")
+
+        <br />
+    </div>

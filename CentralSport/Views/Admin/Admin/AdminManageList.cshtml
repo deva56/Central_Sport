@@ -1,0 +1,41 @@
+﻿@model IEnumerable<CentralSportV1._0._1.Models.admin>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/SharedPagesLayout.cshtml";
+}
+
+    <br />
+    <table class="table">
+        <tr>
+            <th>
+                Id admina
+            </th>
+            <th>
+                Ime admina
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.idAdmin)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.imeAdmin)
+                </td>
+                <td>
+                    @Html.ActionLink("Obriši", "DeleteAdmin", new { id = item.idAdmin })
+                </td>
+            </tr>
+        }
+    </table>
+
+    <div class="Boja">
+        <hr />
+        <br />
+
+        @Html.ActionLink("Natrag", "AdminManagePanel")
+    </div>

@@ -1,0 +1,22 @@
+﻿@model Tuple<IEnumerable<CentralSportV1._0._1.Models.images>, CentralSportV1._0._1.Models.UploadImagesModels>
+
+@{
+    ViewBag.Title = "UpravljanjeSlikama";
+    Layout = "~/Views/Shared/SharedPagesLayout.cshtml";
+}
+
+<br />
+
+@Html.Partial("UploadSlika", Model.Item2)
+
+@Html.Partial("ListaSlika", Model.Item1)
+
+@if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+        window.onload = function () {
+            alert("@ViewBag.Message");
+        };
+    </script>
+}
+

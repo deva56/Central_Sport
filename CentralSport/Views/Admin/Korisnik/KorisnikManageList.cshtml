@@ -1,0 +1,97 @@
+﻿@model IEnumerable<CentralSportV1._0._1.Models.korisnik>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/SharedPagesLayout.cshtml";
+}
+
+    <br />
+    <table class="tablica">
+        <tr>
+            <th>
+                Id korisnika
+            </th>
+            <th>
+                Korisničko ime
+            </th>
+            <th>
+                Ime korisnika
+            </th>
+            <th>
+                Prezime korisnika
+            </th>
+            <th>
+                Registracijski email korisnika
+            </th>
+            <th>
+                Kontakt email korisnika
+            </th>
+            <th>
+                Kontakt telefon korisnika
+            </th>
+            <th>
+                Grad korisnika
+            </th>
+            <th>
+                Županija korisnika
+            </th>
+            <th>
+                Ulica korisnika
+            </th>
+            <th>
+                Putanja do profilne slike
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(Model => item.idKorisnik)
+            </td>
+            <td>
+                @Html.DisplayFor(Model => item.korisničkoImeKorisnik)
+            </td>
+            <td>
+                @Html.DisplayFor(Model => item.imeKorisnik)
+            </td>
+            <td>
+                @Html.DisplayFor(Model => item.prezimeKorisnik)
+            </td>
+            <td>
+                @Html.DisplayFor(Model => item.registracijskiEmailKorisnik)
+            </td>
+            <td>
+                @Html.DisplayFor(Model => item.kontaktEmailKorisnik)
+            </td>
+            <td>
+                @Html.DisplayFor(Model => item.kontaktTelefonKorisnik)
+            </td>
+            <td>
+                @Html.DisplayFor(Model => item.gradKorisnik)
+            </td>
+            <td>
+                @Html.DisplayFor(Model => item.županijaKorisnik)
+            </td>
+            <td>
+                @Html.DisplayFor(Model => item.ulicaKorisnik)
+            </td>
+            <td>
+                @Html.DisplayFor(Model => item.putanjaDoProfilneSlike)
+            </td>
+            <td>
+                @Html.ActionLink("Ažuriraj", "EditKorisnik", new { id = item.idKorisnik }) |
+                @Html.ActionLink("Detalji", "DetailsKorisnik", new { idKorisnika = item.idKorisnik }) |
+                @Html.ActionLink("Obriši", "DeleteKorisnik", new { id = item.idKorisnik })
+            </td>
+        </tr>
+        }
+    </table>
+
+    <div class="Boja">
+        <hr />
+        <br />
+
+        @Html.ActionLink("Natrag", "KorisnikManagePanel")
+    </div>

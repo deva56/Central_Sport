@@ -1,0 +1,86 @@
+﻿@model IEnumerable<CentralSportV1._0._1.Models.poduzeće>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/SharedPagesLayout.cshtml";
+}
+
+    <br />
+    <table class="table">
+        <tr>
+            <th>
+                Id poduzeća
+            </th>
+            <th>
+                Korisničko ime
+            </th>
+            <th>
+                Ime poduzeća
+            </th>
+            <th>
+                Kontakt telefon
+            </th>
+            <th>
+                Kontakt email
+            </th>
+            <th>
+                Primarna djelatnost poduzeća
+            </th>
+            <th>
+                Grad poduzeća
+            </th>
+            <th>
+                Županija poduzeća
+            </th>
+            <th>
+                Ulica poduzeća
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.idPoduzeće)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.korisničkoImePoduzeće)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.imePoduzeće)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.kontaktTelefon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.kontaktEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.primarnaDjelatnostPoduzeće)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.gradPoduzeće)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.županijaPoduzeće)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ulicaPoduzeće)
+            </td>
+            <td>
+                @Html.ActionLink("Ažuriraj", "EditPoduzeće", new { id = item.idPoduzeće }) |
+                @Html.ActionLink("Detalji", "DetailsPoduzeće", new { idPoduzeća = item.idPoduzeće }) |
+                @Html.ActionLink("Obriši", "DeletePoduzeće", new { id = item.idPoduzeće })
+            </td>
+        </tr>
+        }
+
+    </table>
+
+<div class="Boja">
+    <hr />
+    <br />
+    @Html.ActionLink("Natrag", "PoduzećeManagePanel")
+
+</div>

@@ -1,0 +1,148 @@
+﻿@model CentralSportV1._0._1.Models.AdminCreateKorisnik
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/SharedPagesLayout.cshtml";
+}
+
+<br />
+    <h2 class="text-md-center" style="color:yellow">Stvori novog korisnika u bazi podataka</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        <div class="form-group">
+            <div class="text-md-center">
+                @Html.ValidationSummary("", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-5" style="margin:auto">
+                Korisničko ime
+                @Html.EditorFor(model => model.username, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.username, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-5" style="margin:auto">
+                Lozinka
+                @Html.EditorFor(model => model.lozinka, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.lozinka, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        @*<div class="form-group">
+            <div class="col-md-5" style="margin:auto">
+                Id korisnika
+                @Html.EditorFor(model => model.idKorisnik, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.idKorisnik, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            <div class="col-md-5" style="margin:auto">
+                Ime korisnika
+                @Html.EditorFor(model => model.imeKorisnik, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.imeKorisnik, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-5" style="margin:auto">
+                Prezime korisnika
+                @Html.EditorFor(model => model.prezimeKorisnik, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.prezimeKorisnik, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-5" style="margin:auto">
+                Kratki opis o korisniku(interesi, hobiji i sl.)
+                @Html.TextAreaFor(model => model.kratkiOpisKorisnik, new { @id = "opisKorisnikaId", @class = "form-control", @style = "resize: none" })
+                <div id="counter" class="text-md-right"></div>
+                @Html.ValidationMessageFor(model => model.kratkiOpisKorisnik, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-5" style="margin:auto">
+                Registracijski email
+                @Html.EditorFor(model => model.registracijskiEmailKorisnik, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.registracijskiEmailKorisnik, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-5" style="margin:auto">
+                Kontakt email
+                @Html.EditorFor(model => model.kontaktEmailKorisnik, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.kontaktEmailKorisnik, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-5" style="margin:auto">
+                Kontakt telefon
+                @Html.EditorFor(model => model.kontaktTelefonKorisnik, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.kontaktTelefonKorisnik, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-5" style="margin:auto">
+                Grad korisnika
+                @Html.DropDownListFor(model => model.gradKorisnik, Model.Gradovi, "Odaberite grad", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.gradKorisnik, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-5" style="margin:auto">
+                Županija korisnika
+                @Html.DropDownListFor(model => model.županijaKorisnik, Model.Županije, "Odaberite županiju", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.županijaKorisnik, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-5" style="margin:auto">
+                Ulica korisnika
+                @Html.EditorFor(model => model.ulicaKorisnik, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ulicaKorisnik, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-12 text-md-center">
+                <input type="submit" value="Stvori novog korisnika" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }
+
+    }
+
+    <div class="Boja">
+        <br />
+        @Html.ActionLink("Natrag", "KorisnikManagePanel")
+        <br />
+    </div>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript" src=@Url.Content("/Content/BrojanjeSlova/MaxLength.min.js")></script>
+
+    <script type="text/javascript">
+        $(function () {
+            //Specifying the Character Count control explicitly
+            $("[id*=opisKorisnikaId]").MaxLength(
+                {
+                    MaxLength: 5000,
+                    CharacterCountControl: $('#counter')
+                });
+        });
+    </script>
+

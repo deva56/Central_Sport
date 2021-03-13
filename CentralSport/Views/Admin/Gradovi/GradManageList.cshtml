@@ -1,0 +1,43 @@
+﻿@model IEnumerable<CentralSportV1._0._1.Models.gradovi>
+
+@{
+    ViewBag.Title = "GradManageList";
+    Layout = "~/Views/Shared/SharedPagesLayout.cshtml";
+}
+    <br />
+    <div class="vrati">
+        <table class="table">
+            <tr>
+                <th>
+                    Id grada
+                </th>
+                <th>
+                    Ime grada
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.idGradovi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.imeGradovi)
+                    </td>
+                    <td align="right">
+                        @Html.ActionLink("Ažuriraj", "EditGradovi", new { id = item.idGradovi }) |
+                        @Html.ActionLink("Obriši", "DeleteGradovi", new { id = item.idGradovi })
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+
+<div class="Boja">
+    <hr />
+    <br />
+    @Html.ActionLink("Natrag", "GradManagePanel")
+
+</div>

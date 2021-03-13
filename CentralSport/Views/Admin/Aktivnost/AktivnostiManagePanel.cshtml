@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "AktivnostiManagePanel";
+    Layout = "~/Views/Shared/SharedPagesLayout.cshtml";
+}
+<div class="prijefotera1">
+    <br />
+    <div class="col-md-12 align-center">
+        <h2>Aktivnosti upravljačka ploča</h2>
+    </div>
+    <hr />
+    <br />
+    <div class="form-group">
+        <div class="col-md-12 text-center">
+            <a href="@Url.Action("AktivnostiManageList", "Admin")">Pronađi listu aktivnosti</a>
+        </div>
+    </div>
+    <br />
+    <div class="text-md-center">
+        @Html.ActionLink("Dodaj novu aktivnost", "CreateAktivnost")
+    </div>
+    </div>
+<div class="Boja1">
+    <hr />
+
+    @Html.ActionLink("Natrag na admin upravljačku ploču", "AdminMainManagingMenu", "Admin")
+</div>
+
+

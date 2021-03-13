@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "ŽupanijaManagePanel";
+    Layout = "~/Views/Shared/SharedPagesLayout.cshtml";
+}
+
+<div class="prijefotera1">
+    <br />
+    <div class="col-md-12 align-center">
+        <h2>Županije upravljačka ploča</h2>
+    </div>
+    <hr />
+    <br />
+    <div class="form-group">
+        <div class="col-md-12 text-center">
+            <a href="@Url.Action("ŽupanijaManageList", "Admin")">Pronađi listu županija</a>
+        </div>
+    </div>
+    <br />
+    <div class="text-md-center">
+        @Html.ActionLink("Dodaj županiju", "CreateŽupanija")
+    </div>
+</div>
+<div class="Boja1">
+    <hr />
+
+    @Html.ActionLink("Natrag na admin upravljačku ploču", "AdminMainManagingMenu", "Admin")
+</div>
+
+

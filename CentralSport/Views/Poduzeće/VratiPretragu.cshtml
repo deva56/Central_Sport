@@ -1,0 +1,61 @@
+﻿@model IEnumerable<CentralSportV1._0._1.Models.poduzeće>
+
+@{
+    ViewBag.Title = "VratiPretragu";
+    Layout = "~/Views/Shared/SharedPagesLayout.cshtml";
+}
+
+<br />
+<h2 class="text-md-center">Rezultati pretraživanja ...</h2>
+<br />
+<br />
+<div class="vrati">
+
+
+    <table class="table">
+        <tr>
+            <th>
+                Ime
+            </th>
+            <th>
+                Osnovna djelatnost poduzeća
+            </th>
+            <th>
+                Županija
+            </th>
+            <th>
+                Grad
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.imePoduzeće)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.primarnaDjelatnostPoduzeće)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.županijaPoduzeće)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.gradPoduzeće)
+                </td>
+                <td>
+                    @Html.ActionLink("Detaljno", "DetaljiOPretraženojKompaniji", new { idPoduzeća = item.idPoduzeće })
+                </td>
+            </tr>
+
+        }
+
+    </table>
+</div>
+
+<div class="gumb">
+    <a href='@Url.Action("Index", "Home")' class="btn btn-primary">Natrag na početnu stranicu</a>
+</div>
+

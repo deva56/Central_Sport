@@ -1,0 +1,99 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Site made with Mobirise Website Builder v4.9.7, https://mobirise.com -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="generator" content="Mobirise v4.9.7, mobirise.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <link rel="shortcut icon" href=@Url.Content("/Content/template/Template1/assets/images/logo4.png") type="image/x-icon">
+    <meta name="description" content="">
+
+    <title>Central Sport</title>
+    <link rel="stylesheet" href=@Url.Content("/Content/template/Template1/assets/web/assets/mobirise-icons/mobirise-icons.css")>
+    <link rel="stylesheet" href=@Url.Content("/Content/template/Template1/assets/tether/tether.min.css")>
+    <link rel="stylesheet" href=@Url.Content("/Content/template/Template1/assets/bootstrap/css/bootstrap.min.css")>
+    <link rel="stylesheet" href=@Url.Content("/Content/template/Template1/assets/bootstrap/css/bootstrap-grid.min.css")>
+    <link rel="stylesheet" href=@Url.Content("/Content/template/Template1/assets/bootstrap/css/bootstrap-reboot.min.css")>
+    <link rel="stylesheet" href=@Url.Content("/Content/template/Template1/assets/socicon/css/styles.css")>
+    <link rel="stylesheet" href=@Url.Content("/Content/template/Template1/assets/theme/css/style.css")>
+    <link rel="stylesheet" href=@Url.Content("/Content/template/Template1/assets/mobirise/css/mbr-additional.css") type="text/css">
+
+</head>
+<body>
+
+    @RenderBody()
+
+    <section once="footers" class="cid-rqaU7b5ROM" id="footer7-c">
+        <div class="container">
+            <div class="media-container-row align-center mbr-white">
+                <div class="row row-links">
+                    <ul class="foot-menu">
+                        <li class="foot-menu-item mbr-fonts-style display-7"><a href="@Url.Action("Index", "Home")">Početna</a></li>
+                        <li class="foot-menu-item mbr-fonts-style display-7"><a href="@Url.Action("RedirectToPretraživanje", "Home")">Pretraživanje</a></li>
+                        <li class="foot-menu-item mbr-fonts-style display-7"><a href="@Url.Action("Register", "Account")">Registriraj se</a></li>
+                        <li class="foot-menu-item mbr-fonts-style display-7"><a href="@Url.Action("RedirectToKontakti", "Home")">Kontakt</a></li>
+                    </ul>
+                </div>
+
+                <div class="row social-row">
+                    <div class="social-list align-right pb-2">
+
+                        <div class="soc-item">
+                            <a href="https://twitter.com/mobirise" target="_blank">
+                                <span class="socicon-twitter socicon mbr-iconfont mbr-iconfont-social"></span>
+                            </a>
+                        </div><div class="soc-item">
+                            <a href="https://www.facebook.com/pages/Mobirise/1616226671953247" target="_blank">
+                                <span class="socicon-facebook socicon mbr-iconfont mbr-iconfont-social"></span>
+                            </a>
+                        </div><div class="soc-item">
+                            <a href="https://www.youtube.com/c/mobirise" target="_blank">
+                                <span class="socicon-youtube socicon mbr-iconfont mbr-iconfont-social"></span>
+                            </a>
+                        </div><div class="soc-item">
+                            <a href="https://instagram.com/mobirise" target="_blank">
+                                <span class="socicon-instagram socicon mbr-iconfont mbr-iconfont-social"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-copirayt">
+                    <p class="mbr-text mb-0 mbr-fonts-style mbr-white align-center display-7"></p>
+                    <p>&copy; @DateTime.Now.Year - Central Sport</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src=@Url.Content("/Content/template/Template1/assets/web/assets/jquery/jquery.min.js")></script>
+    <script src=@Url.Content("/Content/template/Template1/assets/popper/popper.min.js")></script>
+    <script src=@Url.Content("/Content/template/Template1/assets/tether/tether.min.js")></script>
+    <script src=@Url.Content("/Content/template/Template1/assets/bootstrap/js/bootstrap.min.js")></script>
+    <script src=@Url.Content("/Content/template/Template1/assets/smoothscroll/smooth-scroll.js")></script>
+    <script src=@Url.Content("/Content/template/Template1/assets/vimeoplayer/jquery.mb.vimeo_player.js")></script>
+    <script src=@Url.Content("/Content/template/Template1/assets/parallax/jarallax.min.js")></script>
+    <script src=@Url.Content("/Content/template/Template1/assets/theme/js/script.js")></script>
+    <script type="text/javascript">
+        var loc = '<%=HashLocation %>';
+        $(document).ready(function () {
+            if (loc != '') {
+                window.location.hash = loc;
+            }
+        });
+    </script>
+
+
+    @Scripts.Render(@Url.Content("/Content/template/Template1/assets/web/assets/jquery/jquery.min.js"))
+    @Scripts.Render(@Url.Content("/Content/template/Template1/assets/popper/popper.min.js"))
+    @Scripts.Render(@Url.Content("/Content/template/Template1/assets/tether/tether.min.js"))
+    @Scripts.Render(@Url.Content("/Content/template/Template1/assets/bootstrap/js/bootstrap.min.js"))
+    @Scripts.Render(@Url.Content("/Content/template/Template1/assets/smoothscroll/smooth-scroll.js"))
+    @Scripts.Render(@Url.Content("/Content/template/Template1/assets/vimeoplayer/jquery.mb.vimeo_player.js"))
+    @Scripts.Render(@Url.Content("/Content/template/Template1/assets/parallax/jarallax.min.js"))
+    @Scripts.Render(@Url.Content("/Content/template/Template1/assets/theme/js/script.js"))
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

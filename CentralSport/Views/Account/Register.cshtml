@@ -1,0 +1,69 @@
+﻿@model CentralSportV1._0._1.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Registracija";
+    Layout = "~/Views/Shared/FooterLayout.cshtml";
+}
+
+<h1></h1>
+<h2 class="text-md-center">@ViewBag.Title.</h2>
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <h4 class="text-md-center">Napravi novi račun.</h4>
+    <hr />
+    <div class="form-group">
+        <div class="text-md-center">
+            @Html.ValidationSummary("", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="text-md-center">
+            @Html.LabelFor(m => m.KorisničkoIme, new { @class = "col-md-2 control-label" })
+        </div>
+        <div class="col-md-3" style="margin:auto">
+            @Html.TextBoxFor(m => m.KorisničkoIme, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="text-md-center">
+            @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+        </div>
+        <div class="col-md-3" style="margin:auto">
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="text-md-center">
+            @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+        </div>
+        <div class="col-md-3" style="margin:auto">
+            @Html.TextBoxFor(m => m.Password, new { @class = "form-control", @type = "password" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="text-md-center">
+            @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+        </div>
+        <div class="col-md-3" style="margin:auto">
+            @Html.TextBoxFor(m => m.ConfirmPassword, new { @class = "form-control", @type = "password" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-md-12 text-center">
+            <input type="submit" class="btn btn-primary" value="Registriraj se">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-12 text-center">
+            @Html.ActionLink("Već ste registirani? Ulogirajte se na postojeći račun.", "Login", "Account")
+        </div>
+    </div>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

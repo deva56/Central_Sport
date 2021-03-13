@@ -1,0 +1,43 @@
+﻿@{
+    Layout = "~/Views/Home/IndexLayout.cshtml";
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script type='text/javascript'>
+    function scrollToElement(id) {
+        //Get target
+        var target = document.getElementById(id).offsetTop;
+
+        //Scrolls to that target location
+        window.scrollTo({
+            left: 0,
+            top: target,
+            behavior: "smooth"
+        });
+    }
+</script>
+
+@if (ViewBag.Message != null)
+{
+    if (ViewBag.Message == "Pretraživanje")
+    {
+        <script>scrollToElement("step1-f")</script>
+    }
+    else if (ViewBag.Message == "Kontakti")
+    {
+        <script>scrollToElement("contacts1-k")</script>
+    }
+    else
+    {
+        <script type="text/javascript">
+        window.onload = function () {
+            alert("@ViewBag.Message");
+        };
+        </script>
+    }
+}
+
+

@@ -1,0 +1,51 @@
+﻿@using Microsoft.AspNet.Identity
+@model Tuple<CentralSportV1._0._1.Models.korisnik, CentralSportV1._0._1.Models.UploadImagesModels>
+
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/SharedPagesLayout.cshtml";
+}
+<br />
+<h1 class="text-primary text-md-center"><span class="glyphicon glyphicon-user"></span>Ažuriranje informacija profila</h1>
+<br />
+
+<div class="slika">
+    @{
+        if (Model.Item1.putanjaDoProfilneSlike == null)
+        {
+            <img src="@Url.Content("/Content/ControlImages/noPicturesYetKorisnik.png")" class="img-thumbnail"> }
+        else
+        {
+            <img src="@Url.Content(Model.Item1.putanjaDoProfilneSlike)" class="img-thumbnail" style="width:80%; height:80%;"> }
+    }
+    <h6>Promijenite sliku profila...</h6>
+</div>
+
+@Html.Partial("~/Views/Admin/Korisnik/UploadajProfilnuSlikuKorisnik.cshtml", Model.Item2)
+
+
+@if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+        window.onload = function () {
+            alert("@ViewBag.Message");
+        };
+    </script>
+}
+
+@Html.Partial("~/Views/Admin/Korisnik/EditInformationKorisnik.cshtml", Model.Item1)
+
+<div class="Boja">
+    <hr />
+
+    @Html.ActionLink("Natrag na listu korisnika", "KorisnikManageList")
+
+    <br />
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

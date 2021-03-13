@@ -1,0 +1,106 @@
+﻿@using Microsoft.AspNet.Identity
+@model CentralSportV1._0._1.Models.korisnik
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/SharedPagesLayout.cshtml";
+}
+
+<br />
+
+<div class="container bootstrap snippet">
+    <h1 class="text-primary text-md-center"><span class="glyphicon glyphicon-user"></span>Profilne  informacije</h1>
+    <br />
+    <br />
+    <div class="row">
+        <!-- left column -->
+        <div class="col-md-3">
+            <div class="text-center">
+                <h2>@Html.DisplayName(User.Identity.GetUserName().ToString())</h2>
+                @{
+                    if (Model.putanjaDoProfilneSlike == null)
+                    {
+                        <img src="@Url.Content("/Content/ControlImages/noPicturesYetKorisnik.png")" class="img-thumbnail"> }
+                    else
+                    {
+                        <img src="@Url.Content(Model.putanjaDoProfilneSlike)" class="img-thumbnail" style="width:90%; height:90%;"> }
+                }
+            </div>
+        </div>
+
+        <!-- edit form column -->
+        <div class="col-md-9 personal-info">
+
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Ime:</label>
+                    <div class="col-lg-8">
+                        @Html.TextBoxFor(model => model.imeKorisnik, new { @readonly = "readonly", @class = "form-control", @placeholder = "Još ništa..." })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Prezime:</label>
+                    <div class="col-lg-8">
+                        @Html.TextBoxFor(model => model.prezimeKorisnik, new { @readonly = "readonly", @class = "form-control", @placeholder = "Još ništa..." })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-12 control-label">Kratki opis o korisniku(interesi, hobiji i sl.):</label>
+                    <div class="col-lg-8">
+                        @Html.TextAreaFor(model => model.kratkiOpisKorisnik, new { @readonly = "readonly", @class = "form-control", @style = "resize: none;", @placeholder = "Još ništa o meni..." })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label"> Registracijski e-mail:</label>
+                    <div class="col-lg-8">
+                        @Html.TextBoxFor(model => model.registracijskiEmailKorisnik, new { @readonly = "readonly", @class = "form-control" })
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label"> Kontakt e-mail:</label>
+                    <div class="col-lg-8">
+                        @Html.TextBoxFor(model => model.kontaktEmailKorisnik, new { @readonly = "readonly", @class = "form-control", @placeholder = "Još ništa..." })
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label"> Kontakt telefon:</label>
+                    <div class="col-lg-8">
+                        @Html.TextBoxFor(model => model.kontaktTelefonKorisnik, new { @readonly = "readonly", @class = "form-control", @placeholder = "Još ništa..." })
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label"> Županija stanovanja:</label>
+                    <div class="col-lg-8">
+                        @Html.TextBoxFor(model => model.županijaKorisnik, new { @readonly = "readonly", @class = "form-control", @placeholder = "Još ništa..." })
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label"> Grad stanovanja:</label>
+                    <div class="col-lg-8">
+                        @Html.TextBoxFor(model => model.gradKorisnik, new { @readonly = "readonly", @class = "form-control", @placeholder = "Još ništa..." })
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label"> Ulica stanovanja:</label>
+                    <div class="col-lg-8">
+                        @Html.TextBoxFor(model => model.ulicaKorisnik, new { @readonly = "readonly", @class = "form-control", @placeholder = "Još ništa..." })
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="Boja">
+    <hr />
+
+        <p>
+            @Html.ActionLink("Ažuriraj svoje podatke", "Edit", new { id = Model.idKorisnik }) |
+            @Html.ActionLink("Natrag na početnu stranicu", "Index", "Home")
+        </p>
+   
+</div>

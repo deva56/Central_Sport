@@ -1,0 +1,19 @@
+﻿@model  CentralSportV1._0._1.Models.UploadImagesModels
+
+@using (Html.BeginForm("UpravljanjeSlikama", "Poduzeće", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="form-group">
+        <div class="col-md-12 text-center">
+            <input type="file" id="fileLoader" name="ImageFile" multiple />
+        </div>
+    </div>
+
+    <br />
+
+    <div class="form-group">
+        <div class="col-md-12 text-center">
+            <input type="submit" class="btn btn-primary" value="Spremi slike">
+        </div>
+    </div>
+}
+

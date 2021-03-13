@@ -1,0 +1,34 @@
+﻿@model CentralSportV1._0._1.Models.SendEmail
+
+@using (Html.BeginForm("ContactUS", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        <div class="text-md-center">
+            @Html.ValidationSummary("", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="dragArea row row-sm-offset">
+        <div class="col-md-4  form-group" data-for="name">
+            <label for="name-form1-g" class="form-control-label mbr-fonts-style display-7">Vaše ime</label>
+            @Html.TextBoxFor(m => m.ClientName, new { @class = "form-control" })
+        </div>
+        <div class="col-md-4  form-group" data-for="email">
+            <label for="email-form1-g" class="form-control-label mbr-fonts-style display-7">Vaš E-mail</label>
+            @Html.TextBoxFor(m => m.ClientEmail, new { @class = "form-control" })
+        </div>
+        <div class="col-md-4  form-group" data-for="email">
+            <label for="email-form1-g" class="form-control-label mbr-fonts-style display-7">Subject</label>
+            @Html.TextBoxFor(m => m.Subject, new { @class = "form-control" })
+        </div>
+        <div data-for="message" class="col-md-12 form-group">
+            <label for="message-form1-g" class="form-control-label mbr-fonts-style display-7">Poruka</label>
+            @Html.TextAreaFor(m => m.Body, new { @class = "form-control" })
+        </div>
+        <div class="form-group" style="margin:auto">
+            <div class="col-md-12 text-center">
+                <input type="submit" class="btn btn-primary" value="Pošalji">
+            </div>
+        </div>
+    </div>
+}

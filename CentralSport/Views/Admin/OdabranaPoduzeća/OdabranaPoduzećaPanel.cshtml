@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "OdabranaPoduzećaPanel";
+    Layout = "~/Views/Shared/SharedPagesLayout.cshtml";
+}
+<div class="prijefotera1">
+    <br />
+    <div class="col-md-12 align-center">
+        <h2>Odabrana poduzeća upravljačka ploča</h2>
+    </div>
+    <hr />
+    <br />
+    <div class="form-group">
+        <div class="col-md-12 text-center">
+            <a href="@Url.Action("OdabranaPoduzećaManageList", "Admin")">Pronađi listu odabranih poduzeća sa početne stranice</a>
+        </div>
+    </div>
+    <br />
+    <div class="text-md-center">
+        @Html.ActionLink("Dodaj novo poduzeće", "CreateOdabranoPoduzeće", "Admin")
+    </div>
+    </div>
+<div class="Boja1">
+    <hr />
+
+    @Html.ActionLink("Natrag na admin upravljačku ploču", "AdminMainManagingMenu", "Admin")
+</div>
+

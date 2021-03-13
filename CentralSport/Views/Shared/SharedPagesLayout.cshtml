@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    @RenderSection("head", required: false)
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="generator" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <link rel="shortcut icon" href=@Url.Content("/Content/template/Template1/assets/images/logo4.png") type="image/x-icon">
+    <meta name="description" content="">
+
+    <title>Central Sport</title>
+    <link rel="stylesheet" href=@Url.Content("/Content/template/Template1/assets/web/assets/mobirise-icons/mobirise-icons.css")>
+    <link rel="stylesheet" href=@Url.Content("/Content/template/Template1/assets/tether/tether.min.css")>
+    <link rel="stylesheet" href=@Url.Content("/Content/template/Template1/assets/bootstrap/css/bootstrap.min.css")>
+    <link rel="stylesheet" href=@Url.Content("/Content/template/Template1/assets/bootstrap/css/bootstrap-grid.min.css")>
+    <link rel="stylesheet" href=@Url.Content("/Content/template/Template1/assets/bootstrap/css/bootstrap-reboot.min.css")>
+    <link rel="stylesheet" href=@Url.Content("/Content/template/Template1/assets/socicon/css/styles.css")>
+    <link rel="stylesheet" href=@Url.Content("/Content/template/Template1/assets/theme/css/style.css")>
+    <link rel="stylesheet" href=@Url.Content("/Content/template/Template1/assets/mobirise/css/mbr-additional.css") type="text/css">
+</head>
+<body>
+    <style>
+
+        .tablica {
+            border-collapse: collapse;
+            margin-left:20px;
+            margin-right:20px;
+        }
+
+        .tablica, td, th {
+            border-bottom: 1px solid #ddd;
+        }
+
+        .slika{
+            margin:auto;
+            width:400px;
+            text-align:center;
+            height: 400px;
+        }
+        .vrati{
+            width:70%;
+            margin:auto;
+        }
+        .gumb{
+            text-align:center;
+            margin:auto;
+            width:250px;
+            height:auto;
+            padding:2px;
+            border-radius:10px;
+        }
+        .Boja{
+            background-color:black;
+            text-align:center;
+            padding-bottom:10px;
+            color:white;
+        }
+        .Boja1 {
+            background-color: black;
+            text-align: center;
+            padding-bottom: 50px;
+            color: white;
+        }
+        .prijefotera {
+            height: 491px;
+        }
+        .prijefotera1 {
+            height: 644px;
+        }
+        .prijefotera2 {
+            height: 900px;
+        }
+        .Boja3 {
+            background-color: black;
+            text-align: center;
+              }
+
+        .Boja4 {
+            background-color: black;
+            text-align: center;
+            padding-bottom:26px;
+        }
+        .Boja5 {
+            background-color: black;
+            text-align: center;
+            padding-bottom: 58px;
+            color: white;
+        }
+
+    </style>
+
+    <script src=@Url.Content("/Content/template/Template1/assets/web/assets/jquery/jquery.min.js")></script>
+    <script src=@Url.Content("/Content/template/Template1/assets/popper/popper.min.js")></script>
+    <script src=@Url.Content("/Content/template/Template1/assets/tether/tether.min.js")></script>
+    <script src=@Url.Content("/Content/template/Template1/assets/bootstrap/js/bootstrap.min.js")></script>
+    <script src=@Url.Content("/Content/template/Template1/assets/smoothscroll/smooth-scroll.js")></script>
+    <script src=@Url.Content("/Content/template/Template1/assets/vimeoplayer/jquery.mb.vimeo_player.js")></script>
+    <script src=@Url.Content("/Content/template/Template1/assets/parallax/jarallax.min.js")></script>
+    <script src=@Url.Content("/Content/template/Template1/assets/theme/js/script.js")></script>
+
+    @Scripts.Render(@Url.Content("/Content/template/Template1/assets/web/assets/jquery/jquery.min.js"))
+    @Scripts.Render(@Url.Content("/Content/template/Template1/assets/popper/popper.min.js"))
+    @Scripts.Render(@Url.Content("/Content/template/Template1/assets/tether/tether.min.js"))
+    @Scripts.Render(@Url.Content("/Content/template/Template1/assets/bootstrap/js/bootstrap.min.js"))
+    @Scripts.Render(@Url.Content("/Content/template/Template1/assets/smoothscroll/smooth-scroll.js"))
+    @Scripts.Render(@Url.Content("/Content/template/Template1/assets/vimeoplayer/jquery.mb.vimeo_player.js"))
+    @Scripts.Render(@Url.Content("/Content/template/Template1/assets/parallax/jarallax.min.js"))
+    @Scripts.Render(@Url.Content("/Content/template/Template1/assets/theme/js/script.js"))
+    @RenderSection("scripts", required: false)
+
+    @RenderBody()
+</body>
+</html>
